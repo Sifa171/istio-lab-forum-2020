@@ -2,7 +2,7 @@
 
 ## Make sure you got the OpenShift 4 CLI tool
 Please download the OpenShift 4 commandline client for your operating system here: 
-link:https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/ [OpenShift 4 client]
+link:https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/[OpenShift 4 client]
 
 ### Linux & Mac
 
