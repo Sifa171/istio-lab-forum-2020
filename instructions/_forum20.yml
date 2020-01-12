@@ -5,9 +5,11 @@ content:
   url: https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master
 
 vars:
-  KUBEADMIN_PASSWORD: "default"
+  LABUSER_PASSWORD: "default"
   API_URL: "default"
   MASTER_URL: "default"
+  LABUSER: "default"
+
 
 modules:
   activate:
