@@ -37,7 +37,7 @@ between all services without authentication.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer.sh)
 ----
 
 With output like the following:
@@ -55,7 +55,7 @@ customer => preference => recommendation v1 from '7f8755bb79-vjwq2': 28
 
 You can create the end-user authentication policy. To see how this is done,
 take a look at
-link:http://github.com/thoraxe/istio-lab-summit-2019/blob/master/src/istiofiles/policy-jwt.yaml[policy-jwt.yaml]
+link:http://github.com/Sifa91/istio-lab-forum-2020/blob/master/src/istiofiles/policy-jwt.yaml[policy-jwt.yaml]
 
 [source,yaml,subs="+macros,+attributes"]
 ----
@@ -78,7 +78,7 @@ And then run the following to deploy the policy:
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-oc -n user1-tutorial create -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/policy-jwt.yaml
+oc -n user1-tutorial create -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/policy-jwt.yaml
 ----
 
 You will see something like:
@@ -91,7 +91,7 @@ Then let's run the curl again:
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer.sh)
 ----
 
 And you will see something like:
@@ -122,7 +122,7 @@ identified (provides a valid JWT token).
 
 To get a correct token, we need to pass the token in the http request. To see
 how this is done, take a look at
-link:http://github.com/thoraxe/istio-lab-summit-2019/blob/master/scripts/curl_customer_token.sh[curl_customer_token.sh]
+link:http://github.com/Sifa91/istio-lab-forum-2020/blob/master/scripts/curl_customer_token.sh[curl_customer_token.sh]
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
@@ -135,7 +135,7 @@ Then let's run the curl again, this time with the token.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer_token.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer_token.sh)
 ----
 
 And you will see something like:
@@ -173,7 +173,7 @@ Note the 100% failure rate from the authenticated end-user to customer
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-oc -n user1-tutorial delete -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/policy-jwt.yaml
+oc -n user1-tutorial delete -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/policy-jwt.yaml
 ----
 
 You will see something like:
@@ -189,7 +189,7 @@ policy.authentication.istio.io "jwt-example" deleted
 
 The first thing to do is enable Istio Authorization by using `RbacConfig`
 object. To see how this is done, take a look at
-link:http://github.com/thoraxe/istio-lab-summit-2019/blob/master/src/istiofiles/authorization-enable-rbac.yml[authorization-enable-rbac.yml]
+link:http://github.com/Sifa91/istio-lab-forum-2020/blob/master/src/istiofiles/authorization-enable-rbac.yml[authorization-enable-rbac.yml]
 
 [source,yaml,subs="+macros,+attributes"]
 ----
@@ -207,7 +207,7 @@ Run this command to deploy the RBAC:
 
 [source, bash,subs="+macros,+attributes",role="copypaste"]
 ----
-oc -n user1-tutorial create -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/authorization-enable-rbac.yml
+oc -n user1-tutorial create -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/authorization-enable-rbac.yml
 ----
 
 You will see something like:
@@ -222,7 +222,7 @@ Then let's run the curl to test the RBAC:
 
 [source, bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer.sh)
 ----
 
 You will see something like:
@@ -260,7 +260,7 @@ Let's grant access to any user to any service of our mesh (`customer`,
 through `GET` method.
 
 To see how this is done, take a look at
-link:http://github.com/thoraxe/istio-lab-summit-2019/blob/master/src/istiofiles/namespace-rbac-policy.yml[namespace-rbac-policy.yml]
+link:http://github.com/Sifa91/istio-lab-forum-2020/blob/master/src/istiofiles/namespace-rbac-policy.yml[namespace-rbac-policy.yml]
 
 [source,yaml,subs="+macros,+attributes"]
 ----
@@ -297,7 +297,7 @@ Run this command to deploy the role and role binding:
 
 [source, bash,subs="+macros,+attributes",role="copypaste"]
 ----
-oc -n user1-tutorial create -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/namespace-rbac-policy.yml
+oc -n user1-tutorial create -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/namespace-rbac-policy.yml
 ----
 
 You will see something like:
@@ -311,7 +311,7 @@ Let's send a request now:
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer.sh)
 ----
 
 You will see something like:
@@ -350,8 +350,8 @@ Note the 100% success rate due to allowed RBAC.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-oc -n user1-tutorial delete -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/namespace-rbac-policy.yml
-oc -n user1-tutorial delete -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/authorization-enable-rbac.yml
+oc -n user1-tutorial delete -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/namespace-rbac-policy.yml
+oc -n user1-tutorial delete -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/authorization-enable-rbac.yml
 ----
 
 You will see something like:

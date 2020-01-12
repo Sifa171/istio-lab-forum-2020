@@ -39,7 +39,7 @@ Examine the traffic between the curl and customer services and the preference se
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer_preference.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer_preference.sh)
 ----
 
 You will see something like:
@@ -87,7 +87,7 @@ Now configure preference to use mutual TLS policy.
 
 [source,bash,role="copypaste"]
 ----
-oc -n user1-tutorial create -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/authentication-enable-tls.yml
+oc -n user1-tutorial create -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/authentication-enable-tls.yml
 ----
 
 The Policy just created can be seen below:
@@ -112,7 +112,7 @@ And try the curl again.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer_preference.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer_preference.sh)
 ----
 
 And again:
@@ -155,7 +155,7 @@ TLS and run the curl again.
 
 [source,bash,role="copypaste"]
 ----
-oc -n user1-tutorial create -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/destination-rule-tls.yml
+oc -n user1-tutorial create -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/destination-rule-tls.yml
 ----
 
 The yaml just created can be seen below.
@@ -177,7 +177,7 @@ Execute the curl script:
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer_preference.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer_preference.sh)
 ----
 
 And again:
@@ -241,7 +241,7 @@ Now create a policy using permissive mode.
 
 [source,bash,role="copypaste"]
 ----
-oc -n user1-tutorial create -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/policy-permissive-tls.yml
+oc -n user1-tutorial create -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/policy-permissive-tls.yml
 ----
 
 The contents of the file are displayed below:
@@ -265,7 +265,7 @@ If we try our curl commands again, we notice that this time they both pass:
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer_preference.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer_preference.sh)
 ----
 
 And again:

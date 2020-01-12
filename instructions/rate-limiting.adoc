@@ -39,7 +39,7 @@ IMPORTANT: The Rate Limiting rules take some time to be applied and reflected. B
 Here we will limit the number of concurrent requests into recommendation v2
 
 Now apply the rate limiting. To see how this is done,
-take a look at link:http://github.com/thoraxe/istio-lab-summit-2019/blob/master/src/istiofiles/recommendation_rate_limit.yml[recommendation_rate_limit.yml]
+take a look at link:http://github.com/Sifa91/istio-lab-forum-2020/blob/master/src/istiofiles/recommendation_rate_limit.yml[recommendation_rate_limit.yml]
 
 [source,yaml,subs="+macros,+attributes"]
 ----
@@ -137,7 +137,7 @@ limiting resources.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-oc create -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/recommendation_rate_limit.yml
+oc create -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/recommendation_rate_limit.yml
 ----
 
 You will see something like:
@@ -155,7 +155,7 @@ Throw some requests at customer:
 
 [source, bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer.sh)
 ----
 
 You should see some 429 errors indicating the quota has been exhausted.
@@ -201,7 +201,7 @@ Note the rate limited failure rate from preference to recommendation.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-oc delete -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/recommendation_rate_limit.yml
+oc delete -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/recommendation_rate_limit.yml
 ----
 
 You will see something like:

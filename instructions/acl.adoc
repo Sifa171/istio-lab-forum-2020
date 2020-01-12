@@ -46,7 +46,7 @@ First, start generating traffic.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer.sh)
 ----
 
 You will see something like:
@@ -60,11 +60,11 @@ Now create the whitelist.
 
 [source,bash,role="copypaste"]
 ----
-oc create -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/acl-whitelist.yml
+oc create -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/acl-whitelist.yml
 ----
 
 To see how this is done, take a look at:
-http://github.com/thoraxe/istio-lab-summit-2019/blob/master/src/istiofiles/acl-whitelist.yml
+http://github.com/Sifa91/istio-lab-forum-2020/blob/master/src/istiofiles/acl-whitelist.yml
 
 [source, yaml]
 ----
@@ -109,7 +109,7 @@ image::whitelist_v2_fail.png[]
 
 [source,bash,role="copypaste"]
 ----
-oc delete -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/acl-whitelist.yml
+oc delete -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/acl-whitelist.yml
 ----
 
 [#blacklist]
@@ -123,7 +123,7 @@ First, start generating traffic.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer.sh)
 ----
 
 You will see something like:
@@ -139,11 +139,11 @@ Now, create the blacklist.
 
 [source,bash,role="copypaste"]
 ----
-oc create -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/acl-blacklist.yml
+oc create -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/acl-blacklist.yml
 ----
 
 To see how this is done, take a look at:
-http://github.com/thoraxe/istio-lab-summit-2019/blob/master/src/istiofiles/acl-blacklist.yml
+http://github.com/Sifa91/istio-lab-forum-2020/blob/master/src/istiofiles/acl-blacklist.yml
 
 [source, yaml]
 ----
@@ -186,5 +186,5 @@ image::blacklist_v3_blocked.png[]
 
 [source,bash,role="copypaste"]
 ----
-oc delete -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/acl-blacklist.yml
+oc delete -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/acl-blacklist.yml
 ----

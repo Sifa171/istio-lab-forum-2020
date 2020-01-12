@@ -57,7 +57,7 @@ Then, execute:
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer.sh)
 ----
 
 You will see something like:
@@ -73,7 +73,7 @@ customer => preference => recommendation v1 from '7f8755bb79-vjwq2': 28
 ----
 
 You can inject 503's, for approximately 50% of the requests. To see how this is done,
-take a look at link:http://github.com/thoraxe/istio-lab-summit-2019/blob/master/src/istiofiles/virtual-service-recommendation-503.yml[virtual-service-recommendation-503.yml]
+take a look at link:http://github.com/Sifa91/istio-lab-forum-2020/blob/master/src/istiofiles/virtual-service-recommendation-503.yml[virtual-service-recommendation-503.yml]
 
 [source,yaml,subs="+macros,+attributes"]
 ----
@@ -139,7 +139,7 @@ failure rate is accurately reflected in the Kiali console.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-oc -n user1-tutorial create -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/virtual-service-recommendation-503.yml
+oc -n user1-tutorial create -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/virtual-service-recommendation-503.yml
 ----
 
 You will see something like:
@@ -153,7 +153,7 @@ Then, execute:
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer.sh)
 ----
 
 You will see something like:
@@ -192,7 +192,7 @@ Note the 50% failure rate from preference to recommendation.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-oc -n user1-tutorial delete -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/virtual-service-recommendation-503.yml
+oc -n user1-tutorial delete -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/virtual-service-recommendation-503.yml
 ----
 
 You will see something like:
@@ -209,7 +209,7 @@ The most insidious of possible distributed computing faults is not a "down"
 service but a service that is responding slowly, potentially causing a
 cascading failure in your network of services. To see how to inject such a
 delay, take a look at
-link:http://github.com/thoraxe/istio-lab-summit-2019/blob/master/src/istiofiles/virtual-service-recommendation-delay.yml[virtual-service-recommendation-delay.yml]
+link:http://github.com/Sifa91/istio-lab-forum-2020/blob/master/src/istiofiles/virtual-service-recommendation-delay.yml[virtual-service-recommendation-delay.yml]
 
 [source,yaml,subs="+macros,+attributes"]
 ----
@@ -266,7 +266,7 @@ introduces a 7s delay for 50% of the requests.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-oc -n user1-tutorial create -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/virtual-service-recommendation-delay.yml
+oc -n user1-tutorial create -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/virtual-service-recommendation-delay.yml
 ----
 
 You will see something like:
@@ -280,7 +280,7 @@ And hit the customer endpoint:
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer.sh)
 ----
 
 You will notice many requests to the customer endpoint now have a delay. If
@@ -328,7 +328,7 @@ the other 50% are in the low ms range.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-oc -n user1-tutorial delete -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/virtual-service-recommendation-delay.yml
+oc -n user1-tutorial delete -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/virtual-service-recommendation-delay.yml
 ----
  
 You will see something like:

@@ -152,7 +152,7 @@ execute the following command:
 ----
 alias oc=oc4
 oc login -u {{ LABUSER }} -p {{ LABUSER_PASSWORD }} {{ API_URL }}
-oc create -n user1-tutorial -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/routing-weighted.yaml
+oc create -n user1-tutorial -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/routing-weighted.yaml
 ----
 
 Switch over to the Kiali console to watch the traffic shifting from the
@@ -199,7 +199,7 @@ Switch to the terminal and execute the following command
 
 [source,bash,role="copypaste"]
 ----
-oc delete -n user1-tutorial -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/routing-weighted.yaml
+oc delete -n user1-tutorial -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/routing-weighted.yaml
 ----
 
 The traffic should now return to the default distribution with roughly 33%
@@ -257,7 +257,7 @@ execute the following command:
 
 [source,bash,role="copypaste"]
 ----
-oc create -n user1-tutorial -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/routing-canary.yaml
+oc create -n user1-tutorial -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/routing-canary.yaml
 ----
 
 Switch back to the terminal running the load script and you will notice the
@@ -289,7 +289,7 @@ Switch to the terminal and execute the following command:
 
 [source,bash,role="copypaste"]
 ----
-oc delete -n user1-tutorial -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/routing-canary.yaml
+oc delete -n user1-tutorial -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/routing-canary.yaml
 ----
 
 The traffic should now return to the default distribution with roughly 33%
@@ -364,7 +364,7 @@ execute the following command:
 
 [source,bash,role="copypaste"]
 ----
-oc create -n user1-tutorial -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/routing-mirroring.yaml
+oc create -n user1-tutorial -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/routing-mirroring.yaml
 ----
 
 Switch back to the terminal running the load script and you will notice the
@@ -390,7 +390,7 @@ From within the same terminal execute the following command:
 
 [source,bash,role="copypaste"]
 ----
-oc delete -n user1-tutorial -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/routing-mirroring.yaml
+oc delete -n user1-tutorial -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/routing-mirroring.yaml
 ----
 
 The traffic should now return to the default distribution with roughly 33%

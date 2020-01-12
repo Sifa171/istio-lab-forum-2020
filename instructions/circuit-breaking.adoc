@@ -57,7 +57,7 @@ recommendation service *automatically* and it will land on v1 or v3 only.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer.sh)
 ----
  
 You will see something like:
@@ -101,7 +101,7 @@ The application is back to random load-balancing between v1, v2 and v3.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer.sh)
 ----
 
 And again:
@@ -142,7 +142,7 @@ v2 and v3 but with v2 taking a bit of time to respond
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer.sh)
 ----
 
 [#img-timeout-v1]
@@ -156,7 +156,7 @@ image:timeout-v2.png[]
 Note the duration of v2 is 3s compared to the ms time of v1.
 
 Then add the timeout rule. To see how this is done,
-take a look at link:http://github.com/thoraxe/istio-lab-summit-2019/blob/master/src/istiofiles/virtual-service-recommendation-timeout.yml[virtual-service-recommendation-timeout.yml]
+take a look at link:http://github.com/Sifa91/istio-lab-forum-2020/blob/master/src/istiofiles/virtual-service-recommendation-timeout.yml[virtual-service-recommendation-timeout.yml]
 
 [source,yaml,subs="+macros,+attributes"]
 ----
@@ -178,7 +178,7 @@ Note the 1s timeout for the recommendation destination.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-oc -n user1-tutorial create -f  https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/virtual-service-recommendation-timeout.yml
+oc -n user1-tutorial create -f  https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/virtual-service-recommendation-timeout.yml
 ----
 
 You will see something like:
@@ -193,7 +193,7 @@ is never returned.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/curl_customer.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/curl_customer.sh)
 ----
 
 And then:
@@ -236,7 +236,7 @@ Then delete the virtual service created for timeout by:
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-oc -n user1-tutorial delete -f  https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/virtual-service-recommendation-timeout.yml
+oc -n user1-tutorial delete -f  https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/virtual-service-recommendation-timeout.yml
 ----
 
 You will see something like:
@@ -250,7 +250,7 @@ virtualservice.networking.istio.io "recommendation" deleted
 
 Let's use a 34/33/33 split of traffic.
 
-To see how this is done, take a look at link:http://github.com/thoraxe/istio-lab-summit-2019/blob/master/src/istiofiles/virtual-service-recommendation-split.yml[virtual-service-recommendation-split.yml]
+To see how this is done, take a look at link:http://github.com/Sifa91/istio-lab-forum-2020/blob/master/src/istiofiles/virtual-service-recommendation-split.yml[virtual-service-recommendation-split.yml]
 
 [source,yaml,subs="+macros,+attributes"]
 ----
@@ -299,7 +299,7 @@ Note the weighting of the 3 recommendation destination versions.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-oc -n user1-tutorial apply -f  https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/virtual-service-recommendation-split.yml
+oc -n user1-tutorial apply -f  https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/virtual-service-recommendation-split.yml
 ----
 
 You will see something like:
@@ -313,7 +313,7 @@ Let's perform a load test in our system:
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/loadtest.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/loadtest.sh)
 ----
 
 You will see something like:
@@ -360,7 +360,7 @@ Let's perform a load test in our system. We'll have 20 concurrent requests:
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/loadtest.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/loadtest.sh)
 ----
 
 [#img-nocicuitgraph]
@@ -382,7 +382,7 @@ concurrent requests to the same instance/pod. We don't want multiple requests
 getting queued or making the instance/pod even slower. So we'll add a circuit
 breaker that will *open* whenever we have more than 1 request being handled
 by any instance/pod. To see how this is done, take a look at
-link:http://github.com/thoraxe/istio-lab-summit-2019/blob/master/src/istiofiles/destination-rule-recommendation_cb_policy_version_v2.yml[destination-rule-recommendation_cb_policy_version_v2.yml]
+link:http://github.com/Sifa91/istio-lab-forum-2020/blob/master/src/istiofiles/destination-rule-recommendation_cb_policy_version_v2.yml[destination-rule-recommendation_cb_policy_version_v2.yml]
 
 [source,yaml,subs="+macros,+attributes"]
 ----
@@ -421,7 +421,7 @@ where 100% of single consecutive errors fail.
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-oc apply -n user1-tutorial -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/destination-rule-recommendation_cb_policy_version_v2.yml
+oc apply -n user1-tutorial -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/destination-rule-recommendation_cb_policy_version_v2.yml
 ----
 
 You will see something like:
@@ -434,7 +434,7 @@ Now let's see what is the behavior of the system running some load again:
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-bash <(curl -s https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/scripts/loadtest.sh)
+bash <(curl -s https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/scripts/loadtest.sh)
 ----
 
 You will see something like:
@@ -471,7 +471,7 @@ Then delete the virtual service created for circuit braking by:
 
 [source,bash,subs="+macros,+attributes",role="copypaste"]
 ----
-oc -n user1-tutorial delete -f  https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/istiofiles/virtual-service-recommendation-split.yml
+oc -n user1-tutorial delete -f  https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/istiofiles/virtual-service-recommendation-split.yml
 ----
 
 You will see something like:
