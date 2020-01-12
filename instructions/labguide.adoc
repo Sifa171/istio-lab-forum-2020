@@ -1,0 +1,118 @@
+# Getting the lab guide
+
+## Make sure you got the OpenShift 4 CLI tool
+Please download the OpenShift 4 commandline client for your operating system here: 
+link:https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/ [OpenShift 4 client]
+
+### Linux & Mac
+
+Extract the downloaded tar file with:
+[source,bash,role="copypaste"]
+----
+tar -xzf {{ Your download location }}
+----
+
+Move the extracted file to /usr/bin/
+[source,bash,role="copypaste"]
+----
+sudo mv {{ path to downloaded and extracted oc client }} /usr/bin/oc4
+----
+
+If you already downloaded an OpenShift 3 client, create an alias for your terminal session: 
+[source,bash,role="copypaste"]
+----
+alias oc=oc4
+----
+
+### Windows
+
+Unzip the archive and open your 'cmd.exe'. 
+
+Navigate to your download location and type the following:
+[source,bash,role="copypaste"]
+----
+doskey oc=oc.exe
+----
+
+You can verify it is working by simply typing:
+
+[source,bash,role="copypaste"]
+----
+oc version
+----
+
+## Deploying the guide
+
+### Prerequsites 
+
+Set the following variables in your shell or cmd to deploy the labguide: 
+
+* API_URL=Use the API url from your link:https://www.opentlc.com/gg/gg.cgi?profile=generic_emeaforum[Labinformation Page] 
+* MASTER_URL=Use the Console url from your link:https://www.opentlc.com/gg/gg.cgi?profile=generic_emeaforum[Labinformation Page] 
+* LABUSER=opentlc-mgr
+* LABUSER_PASSWORD=r3dh4t1!
+* BASTION_FQDN=foo.bar.com
+* GUID=Use your GUID from your link:https://www.opentlc.com/gg/gg.cgi?profile=generic_emeaforum[Labinformation Page]
+* ROUTE_SUBDOMAIN=Just use the part 'apps.cluster-*.opentlc.com' from your link:https://www.opentlc.com/gg/gg.cgi?profile=generic_emeaforum[Labinformation Page]
+
+The variables could look like the folling:
+
+* API_URL=https://api.cluster-a76ba.a76ba.sandbox1472.opentlc.com:6443
+* MASTER_URL=http://console-openshift-console.apps.cluster-a76ba.a76ba.sandbox1472.opentlc.com
+* LABUSER=opentlc-mgr
+* LABUSER_PASSWORD=r3dh4t1!
+* BASTION_FQDN=foo.bar.com
+* GUID=a76ba
+* ROUTE_SUBDOMAIN=apps.cluster-a76ba.a76ba.sandbox1472.opentlc.com
+
+### Deploy
+
+[source,bash,role="copypaste"]
+----
+oc login -u opentlc-mgr -p r3dh4t1! 
+oc new-project labguide
+oc new-app -n labguide --name istio \
+quay.io/osevg/workshopper -e CONTENT_URL_PREFIX="https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/instructions/" \
+-e WORKSHOPS_URLS="https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/instructions/_forum20.yml" \
+-e API_URL=$API_URL \
+-e MASTER_URL=$MASTER_URL \
+-e LABUSER=$LABUSER \
+-e LABUSER_PASSWORD=$LABUSER_PASSWORD \
+-e BASTION_FQDN=$BASTION_FQDN \
+-e GUID=$GUID \
+-e ROUTE_SUBDOMAIN=$ROUTE_SUBDOMAIN
+----
+
+And you should see something like the following:
+
+----
+--> Found container image 82cc938 (11 months old) from quay.io for "quay.io/osevg/workshopper"
+
+    * An image stream tag will be created as "istio:latest" that will track this image
+    * This image will be deployed in deployment config "istio"
+    * Port 8080/tcp will be load balanced by service "istio"
+      * Other containers can access this service through the hostname "istio"
+
+--> Creating resources ...
+    imagestream.image.openshift.io "istio" created
+    deploymentconfig.apps.openshift.io "istio" created
+    service "istio" created
+--> Success
+    Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
+     'oc expose svc/istio' 
+    Run 'oc status' to view your app.
+----
+
+At last expose your guide and get your guide url
+
+[source,bash,role="copypaste"]
+----
+oc expose service istio
+----
+
+[source,bash,role="copypaste"]
+----
+oc get route -n labguide istio -o 'jsonpath={.spec.host}'
+----
+
+Now copy the url to your browser and have fun with the Red Hat OpenShift Service Mesh in Action lab! :-)
