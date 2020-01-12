@@ -115,5 +115,14 @@ Password: {{ LABUSER_PASSWORD }}
 ----
 
 
-The screenshots in this guide shows you 'istio-tutorial' as namespace. Please use 'user1-tutorial' !!!
+[IMPORTANT]
+.Before Start
+====
+The screenshots in this guide shows you 'istio-tutorial' and 'istio-system' as namespace. 
+Please use 'user1-tutorial' and 'user1-smcp' !!!
+
+
+
+
+
 
