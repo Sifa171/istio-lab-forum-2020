@@ -28,7 +28,7 @@ alias oc=oc4
 
 Unzip the archive and open your 'cmd.exe'. 
 
-Navigate to your download location and type the following:
+Navigate to your download location in cmd.exe and type the following:
 [source,bash,role="copypaste"]
 ----
 doskey oc=oc.exe

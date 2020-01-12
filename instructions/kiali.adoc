@@ -53,7 +53,7 @@ To open the Kiali console enter the following command within a new terminal
 xdg-open https://$(oc get route -n user1-smcp kiali -o 'jsonpath={.spec.host}')
 ----
 
-When prompted to login use the username *opentlc-mgr* and the password *r3dh4t1!*.
+When prompted to login use the username *{{ LABUSER }}* and the password *{{ LABUSER_PASSWORD }}*.
 
 === Kiali's Graph
 

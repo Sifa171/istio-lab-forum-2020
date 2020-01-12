@@ -54,60 +54,14 @@ the command block above and left-click, it should automatically highlight all th
 text to make for easier copying.
 
 ## Getting Started
-Please download the OpenShift 4 commandline client here: 
-link:https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/ [OpenShift 4 client]
-
-Extract the downloaded tar file with:
-[source,bash,role="copypaste"]
-----
-tar -xzf {{ Your download location }}
-----
-
-Move the extracted file to /usr/bin/
-[source,bash,role="copypaste"]
-----
-sudo mv {{ path to downloaded and extracted oc client }} /usr/bin/oc4
-----
-
-If you already downloaded an OpenShift 3 client, create an alias for your terminal session: 
-[source,bash,role="copypaste"]
-----
-alias oc=oc4
-----
-
-You can verify it is working by simply typing:
-
-[source,bash,role="copypaste"]
-----
-oc version
-----
-
-The Service Mesh control plane is already deployed with several application
-components in an OpenShift Container Platform 4 environment. You will need to
-use `oc` to interact with the API server.
-
-You can login using the following command:
-
-[source,bash,role="copypaste"]
-----
-oc login -u {{ LABUSER }} -p {{ LABUSER_PASSWORD }} {{ API_URL }}
-----
-
-The OpenShift Web Console is also available to you at the following URL:
-
-[source,role="copypaste"]
-----
-{{ MASTER_URL }}
-----
-
-You can login with:
-
-----
-Username: {{ LABUSER }}
-Password: {{ LABUSER_PASSWORD }}
-----
 
 Before you begin please login to Kiali and Jaeger with the following credentials: 
+
+The urls can be discovered as follows:
+----
+oc get route -n user1-smcp kiali -o 'jsonpath={.spec.host}'
+oc get route -n user1-smcp jaeger -o 'jsonpath={.spec.host}'
+----
 
 ----
 Username: {{ LABUSER }}
