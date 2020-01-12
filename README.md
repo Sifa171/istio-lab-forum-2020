@@ -104,11 +104,12 @@ as `kubeadmin` and on a system with the `oc` client installed:
 ```bash
 oc new-project labguide
 oc new-app -n labguide --name istio \
-quay.io/osevg/workshopper -e CONTENT_URL_PREFIX="https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/instructions/" \
--e WORKSHOPS_URLS="https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/instructions/_rhsummit18.yml" \
+quay.io/osevg/workshopper -e CONTENT_URL_PREFIX="https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/instructions/" \
+-e WORKSHOPS_URLS="https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/instructions/_forum20.yml" \
 -e API_URL=$API_URL \
 -e MASTER_URL=$MASTER_URL \
--e KUBEADMIN_PASSWORD=$KUBEADMIN_PASSWORD \
+-e LABUSER=user1
+-e LABUSER_PASSWORD=$LABUSER_PASSWORD \
 -e BASTION_FQDN=$BASTION_FQDN \
 -e GUID=$GUID \
 -e ROUTE_SUBDOMAIN=$ROUTE_SUBDOMAIN
@@ -120,11 +121,11 @@ In the `/src/deployments` folder of this repository are several YAML files. You 
 
 ```bash
 oc new-project istio-tutorial
-oc create -n istio-tutorial -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/deployments/curl.yaml
-oc create -n istio-tutorial -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/deployments/customer.yaml
-oc create -n istio-tutorial -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/deployments/gateway.yaml
-oc create -n istio-tutorial -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/deployments/preference.yaml
-oc create -n istio-tutorial -f https://raw.githubusercontent.com/thoraxe/istio-lab-summit-2019/master/src/deployments/recommendation.yaml
+oc create -n istio-tutorial -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/deployments/curl.yaml
+oc create -n istio-tutorial -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/deployments/customer.yaml
+oc create -n istio-tutorial -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/deployments/gateway.yaml
+oc create -n istio-tutorial -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/deployments/preference.yaml
+oc create -n istio-tutorial -f https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/src/deployments/recommendation.yaml
 ```
 
 ## Doing the Labs
