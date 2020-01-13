@@ -8,7 +8,7 @@ just copy the commands from your labguide and paste them in your cmd or shell wi
 
 If you have any questions feel free to reach out for me - Sebastian Dehn
 
-image::Sebastian-Dehn.jpg[]
+image::http://www.rhpet.de/pictures/Sebastian-Dehn.jpg[Sebastian, 160,120]
 
 
 ## Getting the lab guide
@@ -214,4 +214,6 @@ oc expose service istio
 oc get route -n labguide istio -o 'jsonpath={.spec.host}'
 ----
 
+
+Wait approximately one minute until the pod has started.
 Now copy the url to your browser and have fun with the Red Hat OpenShift Service Mesh in Action lab! :-)
