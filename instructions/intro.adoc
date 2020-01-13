@@ -55,19 +55,22 @@ text to make for easier copying.
 
 ## Getting Started
 
+[IMPORTANT]
+.Before Start
+====
 Before you begin please login to Kiali and Jaeger with the following credentials: 
-
-The urls can be discovered as follows:
-----
-oc get route -n user1-smcp kiali -o 'jsonpath={.spec.host}'
-oc get route -n user1-smcp jaeger -o 'jsonpath={.spec.host}'
-----
+====
 
 ----
 Username: {{ LABUSER }}
 Password: {{ LABUSER_PASSWORD }}
 ----
 
+The urls can be discovered as follows:
+----
+oc get route -n user1-smcp kiali -o 'jsonpath={.spec.host}'
+oc get route -n user1-smcp jaeger -o 'jsonpath={.spec.host}'
+----
 
 [IMPORTANT]
 .Before Start
