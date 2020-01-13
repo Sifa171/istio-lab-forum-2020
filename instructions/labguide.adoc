@@ -78,7 +78,7 @@ The variables could look like the folling:
 * GUID=a76ba
 * ROUTE_SUBDOMAIN=apps.cluster-a76ba.a76ba.sandbox1472.opentlc.com
 
-####Deploy
+#### Deploy
 
 [source,bash,role="copypaste"]
 ----
