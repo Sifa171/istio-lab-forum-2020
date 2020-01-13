@@ -58,6 +58,7 @@ oc version
 
 #### Prerequsites 
 
+Please be aware that there are two sections for deployment. One for Linux & Mac and a second one for Windows
 Set the following variables in your shell or cmd to deploy the labguide: 
 
 * API_URL=Use the API url from your link:https://www.opentlc.com/gg/gg.cgi?profile=generic_emeaforum[Labinformation Page^] 
@@ -78,12 +79,36 @@ The variables could look like the folling:
 * GUID=a76ba
 * ROUTE_SUBDOMAIN=apps.cluster-a76ba.a76ba.sandbox1472.opentlc.com
 
-#### Deploy
+For Windows cmd your command could look like:
 
 [source,bash,role="copypaste"]
 ----
-oc login -u opentlc-mgr -p r3dh4t1! 
+set API_URL=https://api.cluster-a76ba.a76ba.sandbox1472.opentlc.com:6443
+----
+
+For your shell the command could look like: 
+
+[source,bash,role="copypaste"]
+----
+export API_URL=https://api.cluster-a76ba.a76ba.sandbox1472.opentlc.com:6443
+----
+
+#### Deploy with shell
+
+Just copy and paste the following commands to your shell.
+
+[source,bash,role="copypaste"]
+----
+oc login -u opentlc-mgr -p r3dh4t1! $MASTER_URL
+----
+
+[source,bash,role="copypaste"]
+----
 oc new-project labguide
+----
+
+[source,bash,role="copypaste"]
+----
 oc new-app -n labguide --name istio \
 quay.io/osevg/workshopper -e CONTENT_URL_PREFIX="https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/instructions/" \
 -e WORKSHOPS_URLS="https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/instructions/_forum20.yml" \
@@ -94,6 +119,67 @@ quay.io/osevg/workshopper -e CONTENT_URL_PREFIX="https://raw.githubusercontent.c
 -e BASTION_FQDN=$BASTION_FQDN \
 -e GUID=$GUID \
 -e ROUTE_SUBDOMAIN=$ROUTE_SUBDOMAIN
+----
+
+And you should see something like the following:
+
+----
+--> Found container image 82cc938 (11 months old) from quay.io for "quay.io/osevg/workshopper"
+
+    * An image stream tag will be created as "istio:latest" that will track this image
+    * This image will be deployed in deployment config "istio"
+    * Port 8080/tcp will be load balanced by service "istio"
+      * Other containers can access this service through the hostname "istio"
+
+--> Creating resources ...
+    imagestream.image.openshift.io "istio" created
+    deploymentconfig.apps.openshift.io "istio" created
+    service "istio" created
+--> Success
+    Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
+     'oc expose svc/istio' 
+    Run 'oc status' to view your app.
+----
+
+At last expose your guide and get your guide url
+
+[source,bash,role="copypaste"]
+----
+oc expose service istio
+----
+
+[source,bash,role="copypaste"]
+----
+oc get route -n labguide istio -o 'jsonpath={.spec.host}'
+----
+
+
+#### Deploy with cmd
+
+Just copy and paste the following commands to your cmd.
+
+[source,bash,role="copypaste"]
+----
+oc login -u opentlc-mgr -p r3dh4t1! %MASTER_URL%
+----
+
+[source,bash,role="copypaste"]
+----
+oc new-project labguide
+----
+
+[source,bash,role="copypaste"]
+----
+oc new-app -n labguide --name istio ^
+quay.io/osevg/workshopper -e CONTENT_URL_PREFIX="https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/instructions/" ^
+-e WORKSHOPS_URLS="https://raw.githubusercontent.com/Sifa91/istio-lab-forum-2020/master/instructions/_forum20.yml" ^
+-e API_URL=%API_URL% ^
+-e MASTER_URL=%MASTER_URL% ^
+-e LABUSER=%LABUSER% ^
+-e LABUSER_PASSWORD=%LABUSER_PASSWORD% ^
+-e BASTION_FQDN=%BASTION_FQDN% ^
+-e GUID=%GUID% ^
+-e ROUTE_SUBDOMAIN=%ROUTE_SUBDOMAIN%
 ----
 
 And you should see something like the following:
