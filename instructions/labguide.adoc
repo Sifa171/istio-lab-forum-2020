@@ -99,7 +99,7 @@ Just copy and paste the following commands to your shell.
 
 [source,bash,role="copypaste"]
 ----
-oc login -u opentlc-mgr -p r3dh4t1! $MASTER_URL
+oc login -u opentlc-mgr -p r3dh4t1! $API_URL
 ----
 
 [source,bash,role="copypaste"]
@@ -160,7 +160,7 @@ Just copy and paste the following commands to your cmd.
 
 [source,bash,role="copypaste"]
 ----
-oc login -u opentlc-mgr -p r3dh4t1! %MASTER_URL%
+oc login -u opentlc-mgr -p r3dh4t1! %API_URL%
 ----
 
 [source,bash,role="copypaste"]
