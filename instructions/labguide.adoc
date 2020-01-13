@@ -1,10 +1,23 @@
-# Getting the lab guide
+# Red Hat OpenShift Service Mesh in Action
 
-## Make sure you got the OpenShift 4 CLI tool
+## Preface
+
+It might be quiet uncommon to build the guide for your lab, but in that special case it does make sense! 
+The lab uses dynamic urls depending on your provisioned environment and for your comfort you can 
+just copy the commands from your labguide and paste them in your cmd or shell with the correct urls. 
+
+If you have any questions feel free to reach out for me - Sebastian Dehn
+
+image::Sebastian-Dehn.jpeg[]
+
+
+## Getting the lab guide
+
+### Make sure you got the OpenShift 4 CLI tool
 Please download the OpenShift 4 commandline client for your operating system here: 
 link:https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/[OpenShift 4 client]
 
-### Linux & Mac
+#### Linux & Mac
 
 Extract the downloaded tar file with:
 [source,bash,role="copypaste"]
@@ -24,7 +37,7 @@ If you already downloaded an OpenShift 3 client, create an alias for your termin
 alias oc=oc4
 ----
 
-### Windows
+#### Windows
 
 Unzip the archive and open your 'cmd.exe'. 
 
@@ -41,19 +54,19 @@ You can verify it is working by simply typing:
 oc version
 ----
 
-## Deploying the guide
+### Deploying the guide
 
-### Prerequsites 
+#### Prerequsites 
 
 Set the following variables in your shell or cmd to deploy the labguide: 
 
-* API_URL=Use the API url from your link:https://www.opentlc.com/gg/gg.cgi?profile=generic_emeaforum[Labinformation Page] 
-* MASTER_URL=Use the Console url from your link:https://www.opentlc.com/gg/gg.cgi?profile=generic_emeaforum[Labinformation Page] 
+* API_URL=Use the API url from your link:https://www.opentlc.com/gg/gg.cgi?profile=generic_emeaforum[Labinformation Page^] 
+* MASTER_URL=Use the Console url from your link:https://www.opentlc.com/gg/gg.cgi?profile=generic_emeaforum[Labinformation Page^] 
 * LABUSER=opentlc-mgr
 * LABUSER_PASSWORD=r3dh4t1!
 * BASTION_FQDN=foo.bar.com
 * GUID=Use your GUID from your link:https://www.opentlc.com/gg/gg.cgi?profile=generic_emeaforum[Labinformation Page]
-* ROUTE_SUBDOMAIN=Just use the part 'apps.cluster-*.opentlc.com' from your link:https://www.opentlc.com/gg/gg.cgi?profile=generic_emeaforum[Labinformation Page]
+* ROUTE_SUBDOMAIN=Just use the part 'apps.cluster-*.opentlc.com' from your link:https://www.opentlc.com/gg/gg.cgi?profile=generic_emeaforum[Labinformation Page^]
 
 The variables could look like the folling:
 
@@ -65,7 +78,7 @@ The variables could look like the folling:
 * GUID=a76ba
 * ROUTE_SUBDOMAIN=apps.cluster-a76ba.a76ba.sandbox1472.opentlc.com
 
-### Deploy
+####Deploy
 
 [source,bash,role="copypaste"]
 ----
