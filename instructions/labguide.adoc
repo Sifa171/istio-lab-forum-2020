@@ -8,7 +8,7 @@ just copy the commands from your labguide and paste them in your cmd or shell wi
 
 If you have any questions feel free to reach out for me - Sebastian Dehn
 
-image::Sebastian-Dehn.jpeg[]
+image::Sebastian-Dehn.jpg[]
 
 
 ## Getting the lab guide
