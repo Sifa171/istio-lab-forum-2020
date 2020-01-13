@@ -69,7 +69,7 @@ Set the following variables in your shell or cmd to deploy the labguide:
 * GUID=Use your GUID from your link:https://www.opentlc.com/gg/gg.cgi?profile=generic_emeaforum[Labinformation Page]
 * ROUTE_SUBDOMAIN=Just use the part 'apps.cluster-*.opentlc.com' from your link:https://www.opentlc.com/gg/gg.cgi?profile=generic_emeaforum[Labinformation Page^]
 
-The variables could look like the folling:
+The variables could look like the following:
 
 * API_URL=https://api.cluster-a76ba.a76ba.sandbox1472.opentlc.com:6443
 * MASTER_URL=http://console-openshift-console.apps.cluster-a76ba.a76ba.sandbox1472.opentlc.com
