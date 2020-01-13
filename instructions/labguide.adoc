@@ -58,7 +58,7 @@ oc version
 
 #### Prerequsites 
 
-Please be aware that there are two sections for deployment. One for Linux & Mac and a second one for Windows
+Please be aware that there are two sections for deployment. One for Linux & Mac and a second one for Windows. 
 Set the following variables in your shell or cmd to deploy the labguide: 
 
 * API_URL=Use the API url from your link:https://www.opentlc.com/gg/gg.cgi?profile=generic_emeaforum[Labinformation Page^] 
