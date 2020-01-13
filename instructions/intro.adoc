@@ -58,7 +58,7 @@ text to make for easier copying.
 [IMPORTANT]
 .Before Start
 ====
-Before you begin please login to Kiali and Jaeger with the following credentials: 
+Before you begin please login to Kiali and Jaeger with the following credentials and use HTTPS!!!
 ====
 
 ----
